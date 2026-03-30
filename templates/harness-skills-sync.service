@@ -1,0 +1,8 @@
+[Unit]
+Description=Harness skills sync
+
+[Service]
+Type=oneshot
+Environment=HOME=__HOME__
+Environment=PATH=/usr/local/bin:/usr/bin:/bin:__HOME__/.local/bin
+ExecStart=__HOME__/.local/bin/harness-skills-sync --mode timer

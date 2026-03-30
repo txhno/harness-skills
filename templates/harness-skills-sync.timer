@@ -1,0 +1,10 @@
+[Unit]
+Description=Run harness skills sync hourly
+
+[Timer]
+OnBootSec=2m
+OnUnitActiveSec=1h
+Persistent=true
+
+[Install]
+WantedBy=timers.target
