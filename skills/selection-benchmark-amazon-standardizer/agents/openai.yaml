@@ -1,0 +1,4 @@
+interface:
+  display_name: "Selection Amazon Standardizer"
+  short_description: "Maintain Amazon benchmark parity"
+  default_prompt: "Use $selection-benchmark-amazon-standardizer to update the duplicate Final workbook, reduce missing Amazon variants, and keep the benchmark rules current."

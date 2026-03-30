@@ -1,0 +1,62 @@
+# Enable Powerlevel10k instant prompt
+if [[ -r ${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh ]]; then
+  source ${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh
+fi
+
+# Path to powerlevel10k
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# History settings
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+
+# Basic zsh options
+setopt AUTO_CD
+setopt EXTENDED_GLOB
+setopt NO_CASE_GLOB
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+# Completion
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+
+# Load zsh-autosuggestions
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Load zsh-syntax-highlighting if available
+if [ -f $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Aliases
+alias ll='ls -alF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+alias ls='ls --color=auto'
+
+# Set terminal for proper colors
+export TERM=xterm-256color
+
+# Add local bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# Claude Code alias - sandboxed with no permissions
+alias c='IS_SANDBOX=1 claude --dangerously-skip-permissions'
+
+# Codex alias - bypass approvals and sandbox
+alias o='codex --dangerously-bypass-approvals-and-sandbox'
+
+# Auto-start ssh-agent and add key if not already running
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)" > /dev/null
+    ssh-add ~/.ssh/id_rsa 2>/dev/null
+fi
+
+# Change to Development directory on login
+cd /root/Development
+
+# To customize prompt, run p10k configure or edit ~/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
