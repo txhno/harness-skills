@@ -137,10 +137,10 @@ def merge_tree(
             continue
         preferred, reason = prefer_file(repo_file, local_file)
         log(f"resolved skill file divergence for {rel_path} using {reason}")
-        if write_repo:
+        if write_repo and preferred != repo_file:
             copy_file(preferred, repo_file)
             changes += 1
-        if write_local:
+        if write_local and preferred != local_file:
             copy_file(preferred, local_file)
             changes += 1
     return changes
