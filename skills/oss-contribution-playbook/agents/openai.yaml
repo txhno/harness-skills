@@ -1,0 +1,4 @@
+interface:
+  display_name: "OSS Contribution Playbook"
+  short_description: "Find, vet, and ship clean OSS fixes."
+  default_prompt: "Use this skill when the user wants to find a good open-source issue, vet duplicates and comments, set up a fork, prepare a small clean fix, and pause for approval before editing or opening a PR."
