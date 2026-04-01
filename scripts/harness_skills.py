@@ -16,8 +16,8 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_ROOT = REPO_ROOT / "skills"
 LOCK_DIR = REPO_ROOT / ".sync.lock"
-DEFAULT_AUTHOR_NAME = "txhno"
-DEFAULT_AUTHOR_EMAIL = "198242577+txhno@users.noreply.github.com"
+DEFAULT_AUTHOR_NAME = "Roshan Warrier"
+DEFAULT_AUTHOR_EMAIL = "roshwarrier@gmail.com"
 LOG_PREFIX = "[harness-skills]"
 
 
